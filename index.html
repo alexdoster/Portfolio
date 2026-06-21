@@ -511,9 +511,14 @@
   <div id="disclaimer-box">
     <h2>Data Disclaimer</h2>
     <p>All datasets used in this portfolio's healthcare dashboards have been randomly generated for demonstration purposes. They do not contain any real patient information or protected health information (PHI). Any resemblance to actual names, locations, or data is purely coincidental.</p>
-    <button id="accept-btn" onclick="document.getElementById('disclaimer-overlay').style.display='none'">I Understand</button>
+    <button id="accept-btn" onclick="sessionStorage.setItem('disclaimerSeen','1'); document.getElementById('disclaimer-overlay').style.display='none'">I Understand</button>
   </div>
 </div>
+<script>
+  if (sessionStorage.getItem('disclaimerSeen')) {
+    document.getElementById('disclaimer-overlay').style.display = 'none';
+  }
+</script>
 
 <!-- NAV -->
 <nav>
