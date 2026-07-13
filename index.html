@@ -280,11 +280,6 @@
     color: var(--teal);
     margin-bottom: 0.75rem;
   }
-  /* Consulting-lane cards (sold as engagements) get the amber accent;
-     product-lane cards (shipped and live on their own) keep teal. */
-  .featured-card.consulting-lane::before { background: var(--amber); }
-  .featured-card.consulting-lane:hover { border-color: var(--amber); }
-  .featured-card.consulting-lane .featured-tag { color: var(--amber); }
   .featured-card h3 {
     font-family: 'DM Serif Display', serif;
     font-size: 1.3rem;
@@ -627,7 +622,7 @@
         <a href="https://askcostreports.com" target="_blank" rel="noopener" class="card-link">Try It Live <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
 
-      <div class="featured-card consulting-lane fade-in">
+      <div class="featured-card fade-in">
         <div class="featured-tag">Consulting &middot; AI Demo &middot; Healthcare</div>
         <h3>Healthcare AI Analytics Demo</h3>
         <p>A pre-sales prototype for a multispecialty clinic evaluating AI-powered analytics, built on synthetic data so the conversation stays safe before any real data changes hands. The in-browser SQL engine (DuckDB-WASM) was a deliberate choice: it mirrors how Snowflake Cortex resolves queries in production, so the demo also proves the architecture will translate to their actual stack.</p>
@@ -635,7 +630,7 @@
         <a href="https://alexdoster.github.io/rosecity-demo/" target="_blank" rel="noopener" class="card-link">Launch Demo <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
 
-      <div class="featured-card consulting-lane fade-in">
+      <div class="featured-card fade-in">
         <div class="featured-tag">Consulting &middot; Google Apps Script &middot; Web App</div>
         <h3>Chef Scheduling App</h3>
         <p>A full scheduling and demo management web application built for a multi-location food service client. Handles chef demo visit scheduling across retail locations, tracks session data, and provides operational reporting. Scoped, built, and delivered as an independent consulting engagement.</p>
@@ -903,10 +898,14 @@
 </section>
 
 <footer>
-  <p>Alex Doster. All templates, reports, and tools developed by Alex Doster. Portfolio built on GitHub Pages.</p>
+  <p>Alex Doster. All templates, reports, and tools developed by Alex Doster. Portfolio built on GitHub Pages. <span id="site-version"></span></p>
 </footer>
 
 <script>
+  const APP_VERSION = "1.0.0";
+  console.log("Portfolio v" + APP_VERSION);
+  document.getElementById('site-version').textContent = 'v' + APP_VERSION;
+
   // Scroll fade-in
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
